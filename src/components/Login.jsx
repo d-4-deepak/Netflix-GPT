@@ -18,9 +18,10 @@ const Login = () => {
   const password = useRef(null);
 
   const handleButtonClick = ()=>{
+  const nameValue = !isSignIn?name.current.value:null
   // console.log(email.current.value);
   // console.log(password.current.value);
-   const result =  checkValidData(email.current.value,password.current.value,name.current.value);
+   const result =  checkValidData(email.current.value,password.current.value,nameValue);
   
   // console.log(result);
   setErrorMessage(result)
@@ -67,7 +68,7 @@ const Login = () => {
               className='p-2 py-4 m-2 border border-white text-white bg-neutral-800/40 rounded-sm'
             />
             <p className='font-bold text-red-500 p-2 m-2'>{errorMessage}</p>
-            <button onClick={handleButtonClick} className='p-2 m-2 bg-red-600 font-bold'>{isSignIn?"Sign In":"Sign Up"}</button>
+            <button onClick={handleButtonClick} className='p-2 m-2 bg-red-600 font-bold cursor-pointer'>{isSignIn?"Sign In":"Sign Up"}</button>
            {isSignIn && (
               <>
                 <p className='mx-auto text-gray-400 mt-3 mb-3'>OR</p>
