@@ -2,6 +2,12 @@
 
  - create vite app
  - configured tailwind css in vite
+ - Header
+ - Routing of app
+ - Login form
+ - Sign Up form
+ - form Validation
+ - useRef
 
  # Features
  - Login/Sign up form
