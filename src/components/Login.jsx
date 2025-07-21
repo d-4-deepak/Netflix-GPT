@@ -1,8 +1,12 @@
 import React, { useRef, useState } from 'react';
 import Header from './Header';
 import { checkValidData } from '../utils/validate';
-
+import { auth } from '../utils/firebase';
+import { createUserWithEmailAndPassword,signInWithEmailAndPassword } from "firebase/auth";
+import { useNavigate } from 'react-router-dom';
 const Login = () => {
+
+  const navigate = useNavigate();
   const [expanded, setExpanded] = useState(false);
   const [isSignIn,setIsSignIn] = useState(true);
   const [errorMessage,setErrorMessage]=useState(null);
@@ -24,7 +28,54 @@ const Login = () => {
    const result =  checkValidData(email.current.value,password.current.value,nameValue);
   
   // console.log(result);
-  setErrorMessage(result)
+ 
+
+  if (result) {
+    setErrorMessage(result);
+    return;
+  }
+  setErrorMessage(null);
+
+  if(!isSignIn){
+    //SignUp logic
+    createUserWithEmailAndPassword(auth, email.current.value,password.current.value)
+    .then((userCredential) => {
+      // Signed up 
+      const user = userCredential.user;
+      console.log(user);
+      
+      navigate("/browse")
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      
+      setErrorMessage(errorCode +"-"+ errorMessage)
+    });
+  }else{
+    //SignIn logic
+
+    signInWithEmailAndPassword(auth, email.current.value,password.current.value)
+  .then((userCredential) => {
+    // Signed in 
+    const user = userCredential.user;
+   console.log(user);
+   navigate("/browse")
+
+  })
+  .catch((error) => {
+    console.error(error);
+    
+    // const errorCode = error.code;
+    // const errorMessage = error.message;
+
+    // setErrorMessage(errorCode +"-"+ errorMessage)
+
+    setErrorMessage("The login credentials are invalid or expired. Please try again.")
+
+  });
+
+  }
   
 
   }
