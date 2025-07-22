@@ -28,3 +28,21 @@
  - NetflixGPT 
       - Search Bar
       - Movie Suggestions      
+
+
+
+
+
+
+
+
+
+      ## 🔧 Setup
+
+1. Copy `.env.example` to `.env`
+2. Add your Firebase config values in the `.env` file
+3. Run the app
+
+```bash
+npm install
+npm run dev
