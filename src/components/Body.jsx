@@ -8,6 +8,7 @@ import { useDispatch } from 'react-redux'; // ✅ Corrected line
 import { addUser, removeUser } from '../utils/userSlice';
 
 
+
 const Body = () => {
 
   const dispatch = useDispatch()
@@ -28,11 +29,12 @@ const Body = () => {
       onAuthStateChanged(auth, (user) => {
         if (user) {
           
-          const {uid,displayName,email} = user;
+          const {uid,displayName,email,photoURL} = user;
           dispatch(addUser({
             uid:uid,
             displayName:displayName,
-            email:email
+            email:email,
+            photoURL:photoURL
           }))
 
       

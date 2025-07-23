@@ -2,10 +2,13 @@ import React, { useRef, useState } from 'react';
 import Header from './Header';
 import { checkValidData } from '../utils/validate';
 import { auth } from '../utils/firebase';
-import { createUserWithEmailAndPassword,signInWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword,signInWithEmailAndPassword,updateProfile  } from "firebase/auth";
 import { useNavigate } from 'react-router-dom';
-const Login = () => {
+import { useDispatch } from 'react-redux';
+import { addUser } from '../utils/userSlice';
 
+const Login = () => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const [expanded, setExpanded] = useState(false);
   const [isSignIn,setIsSignIn] = useState(true);
@@ -23,8 +26,8 @@ const Login = () => {
 
   const handleButtonClick = ()=>{
   const nameValue = !isSignIn?name.current.value:null
-  // console.log(email.current.value);
-  // console.log(password.current.value);
+  console.log(email.current.value);
+  console.log(password.current.value);
    const result =  checkValidData(email.current.value,password.current.value,nameValue);
   
   // console.log(result);
@@ -42,9 +45,23 @@ const Login = () => {
     .then((userCredential) => {
       // Signed up 
       const user = userCredential.user;
-      console.log(user);
+      // console.log(user);
+      updateProfile(user, {
+        displayName: nameValue, photoURL: "https://avatars.githubusercontent.com/u/168158961?v=4"
+      }).then(() => {
+        // Profile updated!
+        const {email,displayName,photoURL} = auth.currentUser;
+        dispatch(addUser({
+          email,displayName,photoURL
+
+        }))
+        navigate("/browse")
+      }).catch((error) => {
+        setErrorMessage(error)
+        
+      });
       
-      navigate("/browse")
+      
     })
     .catch((error) => {
       const errorCode = error.code;
@@ -59,8 +76,17 @@ const Login = () => {
   .then((userCredential) => {
     // Signed in 
     const user = userCredential.user;
-   console.log(user);
-   navigate("/browse")
+    updateProfile(user, {
+      displayName: nameValue, photoURL: "https://avatars.githubusercontent.com/u/168158961?v=4"
+    }).then(() => {
+      // Profile updated!
+     
+
+      navigate("/browse")
+    }).catch((error) => {
+      setErrorMessage(error)
+      
+    });
 
   })
   .catch((error) => {
