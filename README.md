@@ -13,6 +13,23 @@
  - create signUp user account
  - Implement SignIn user API
  - created our redux store with userSlice
+ - Implement Sign out 
+ - update profile api
+ - BugFix: sign up user display name and profile picture
+ - BugFix: if user is not login redirect /browse to login page and vice versa
+ - unsubscribe to the onAuthState change callback
+ - Add hard coded values to constant file.
+ - Register TMDB API & create an app & get access token
+ - Get data from TMDB now playing movies list api
+ - create custom hook for nowPlayingMovies
+ - updated the store with movies data
+ - planning for mainContainer and Secondary container
+ - fetch data for trailer video
+ - update the store with trailer video
+ - Embedded the Youtube video make it mute for autoplay
+ - mute/unmute functionality via a toggle button.
+ - direct control over a YouTube iframe is limited,
+ - used the YouTube Player API via postMessage to send commands like mute and unMute
 
  # Features
  - Login/Sign up form
