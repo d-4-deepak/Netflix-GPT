@@ -49,7 +49,7 @@ signOut(auth).then(() => {
   },[])
   return (
     <div className='absolute w-screen px-8 py-2 bg-gradient-to-b from-black z-10 flex justify-between'>
-      <img className=' w-[12vw] sm:w-40' src={NETFLIX_LOGO}/>
+      <img className=' w-[18vw] sm:w-40' src={NETFLIX_LOGO}/>
 
      {user && <div className='flex gap-2 items-center '>
      <img className=' w-7 h-7 sm:w-12 sm:h-12  ' alt="logo" src={user.photoURL} />
