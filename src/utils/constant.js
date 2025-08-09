@@ -11,3 +11,16 @@ export const API_OPTIONS =  {
   };
 
   export const IMAGE_CDN_URL = "https://image.tmdb.org/t/p/w342";
+
+  export const BACKGROUND_URl = "https://assets.nflxext.com/ffe/siteui/vlv3/a927b1ee-784d-494a-aa80-cf7a062d2523/web/IN-en-20250714-TRIFECTA-perspective_5acb7337-c372-45ec-ae12-ddb110e6ad78_large.jpg"
+
+  export const SUPPORTED_LANGUAGES = [
+    { identifier: "en", name: "English" },
+    { identifier: "hindi", name: "Hindi" },
+    { identifier: "spanish", name: "Spanish" },
+    { identifier: "punjabi", name: "Punjabi" },
+    { identifier: "french", name: "French" },
+    { identifier: "german", name: "German" },
+    { identifier: "chinese", name: "Chinese" }
+  ];
+  

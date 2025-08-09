@@ -30,6 +30,13 @@
  - mute/unmute functionality via a toggle button.
  - direct control over a YouTube iframe is limited,
  - used the YouTube Player API via postMessage to send commands like mute and unMute
+ - Built the Secondary Component
+ - Built movieList
+ - Built movieCard
+ - TMDB image CDN URL
+ - GPT search page
+ - GPT search bar
+ - add multi-language feature
 
  # Features
  - Login/Sign up form

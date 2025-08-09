@@ -5,7 +5,7 @@ import { auth } from '../utils/firebase';
 import { createUserWithEmailAndPassword,signInWithEmailAndPassword,updateProfile  } from "firebase/auth";
 import { useDispatch } from 'react-redux';
 import { addUser } from '../utils/userSlice';
-import { USER_AVTAR } from '../utils/constant';
+import { BACKGROUND_URl, USER_AVTAR } from '../utils/constant';
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -115,7 +115,7 @@ const Login = () => {
         <img
           className='absolute top-0 left-0 w-full h-full object-cover z-[-2]'
           alt="bg-img"
-          src="https://assets.nflxext.com/ffe/siteui/vlv3/a927b1ee-784d-494a-aa80-cf7a062d2523/web/IN-en-20250714-TRIFECTA-perspective_5acb7337-c372-45ec-ae12-ddb110e6ad78_large.jpg"
+          src= {BACKGROUND_URl}
         />
 
         {/* Optional dark overlay */}
