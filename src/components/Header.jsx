@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { addUser, removeUser } from '../utils/userSlice';
 import { NETFLIX_LOGO, SUPPORTED_LANGUAGES } from '../utils/constant';
-import { toggleGptSearch } from '../utils/gptSlice';
+import { addGptMovieResult, toggleGptSearch } from '../utils/gptSlice';
 import { changeLanguage } from '../utils/configSlice';
 import lang from '../utils/languageConstants';
 
@@ -30,6 +30,7 @@ const Header = () => {
   //handle gpt search button
   const handleGptSearch =()=>{
     dispatch(toggleGptSearch(!ShowGptSearch))
+    dispatch(addGptMovieResult({movieName:null,movieResults:null}))
   }
 
 

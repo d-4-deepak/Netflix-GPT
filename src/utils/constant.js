@@ -6,7 +6,7 @@ export const API_OPTIONS =  {
     method: 'GET',
     headers: {
       accept: 'application/json',
-      Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0NTg1N2U2MzM5NTFjMWZiYTdiNjE5NjQ4NzU3ZjFjZiIsIm5iZiI6MTc1Mzk3MDI5OC42NDcsInN1YiI6IjY4OGI3NjdhNGNmMjM3M2VhMTc2N2VlMCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.eNcszuM8GL2Zjc63NSNARi99qVcPUNxfNMfmrWdD6ZI'
+      Authorization: 'Bearer '+import.meta.env.VITE_TMDB_KEY
     }
   };
 
@@ -24,3 +24,4 @@ export const API_OPTIONS =  {
     { identifier: "chinese", name: "Chinese" }
   ];
   
+
