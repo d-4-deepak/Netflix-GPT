@@ -13,6 +13,7 @@ const Login = () => {
   const [isSignIn,setIsSignIn] = useState(true);
   const [errorMessage,setErrorMessage]=useState(null);
 
+  const [fadeButton,setFadeButton] = useState(false);
 
 
   const toggleSignIn = ()=>{
@@ -24,16 +25,16 @@ const Login = () => {
   const password = useRef(null);
 
   const handleButtonClick = ()=>{
+    setFadeButton(true);
   const nameValue = !isSignIn?name.current.value:null
   console.log(email.current.value);
   console.log(password.current.value);
    const result =  checkValidData(email.current.value,password.current.value,nameValue);
   
-  // console.log(result);
- 
-
+      ///if data not valid 
   if (result) {
     setErrorMessage(result);
+    setFadeButton(false);
     return;
   }
   setErrorMessage(null);
@@ -57,7 +58,7 @@ const Login = () => {
        
       }).catch((error) => {
         setErrorMessage(error)
-        
+        setFadeButton(false);        
       });
       
       
@@ -67,6 +68,7 @@ const Login = () => {
       const errorMessage = error.message;
       
       setErrorMessage(errorCode +"-"+ errorMessage)
+      setFadeButton(false);    
     });
   }else{
     //SignIn logic
@@ -75,6 +77,9 @@ const Login = () => {
   .then((userCredential) => {
     // Signed in 
     const user = userCredential.user;
+    if (!user) {
+      setFadeButton(false); // ❗ If somehow no user, enable button
+    }
     updateProfile(user, {
       displayName: nameValue, photoURL: "https://avatars.githubusercontent.com/u/168158961?v=4"
     }).then(() => {
@@ -84,17 +89,16 @@ const Login = () => {
   
     }).catch((error) => {
       setErrorMessage(error)
-      
+      if (!user) {
+        setFadeButton(false); // 
+      }
     });
 
   })
   .catch((error) => {
     console.error(error);
-    
-    // const errorCode = error.code;
-    // const errorMessage = error.message;
-
-    // setErrorMessage(errorCode +"-"+ errorMessage)
+   
+      setFadeButton(false); // ❗ If somehow no user, enable button
 
     setErrorMessage("The login credentials are invalid or expired. Please try again.")
 
@@ -144,7 +148,7 @@ const Login = () => {
               className='p-2 py-4 m-2 border border-white text-white bg-neutral-800/40 rounded-sm'
             />
             <p className='font-bold text-red-500 p-2 m-2'>{errorMessage}</p>
-            <button onClick={handleButtonClick} className='p-2 m-2 bg-red-600 font-bold cursor-pointer'>{isSignIn?"Sign In":"Sign Up"}</button>
+            <button onClick={handleButtonClick} disabled={fadeButton} className=' disabled:bg-gray-200 disabled:text-black disabled:animate-spin p-2 m-2 bg-red-600 font-bold cursor-pointer'>{isSignIn?"Sign In":"Sign Up"}</button>
            {isSignIn && (
               <>
                 <p className='mx-auto text-gray-400 mt-3 mb-3'>OR</p>

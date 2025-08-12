@@ -7,6 +7,8 @@ import ReactPlayer from 'react-player';
 
 const WatchPage = () => {
     const {id} = useParams();
+    console.log(id);
+    
     useMovieTrailer(id);
     const trailerVideo = useSelector((store)=>store.movies.trailerVideo)
     console.log("trailervideo",trailerVideo);
@@ -27,7 +29,7 @@ const WatchPage = () => {
         allowFullScreen
       ></iframe>
     ) : (
-      <p className="text-white text-xl">Loading trailer...</p>
+      <p className="text-white text-xl">Loading trailer...(if not loaded in few seconds it means data is not available) </p>
     )}
   </div>
 </>

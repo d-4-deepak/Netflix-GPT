@@ -4,16 +4,21 @@ import { useNavigate } from 'react-router-dom';
 import WatchPage from './WatchPage';
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleGptSearch } from '../utils/gptSlice';
+import { removeTrailerVideo } from '../utils/moviesSlice';
 
 const MovieCard = ({poster_path,id}) => {
+  
   const dispatch = useDispatch()
   const isShowGptSearch = useSelector(store=>store.gpt.showGptSearch)
   const navigate = useNavigate()
   // console.log("MovieCard rendered with id:", id);
   const handleCardClick = ()=>{
     // console.log("clicked",id);
-    navigate(`/watch/${id}`)
-    dispatch(toggleGptSearch(!isShowGptSearch))
+    dispatch(removeTrailerVideo(null))
+    setTimeout(() => {
+      navigate(`/watch/${id}`);
+      dispatch(toggleGptSearch(!isShowGptSearch));
+    }, 0);
 
   }
 

@@ -18,16 +18,16 @@ const useMovieTrailer = (movieId)=>{
 
         //if no tailer then take any video may be first
         const trailer = filteredData.length?filteredData[0]:res.results[0];
-        // console.log("tariler",trailer);
+        console.log("tariler",trailer);
         dispatch(addTrailerVideo(trailer))
         
         
     }
 
     useEffect(()=>{
-      if(!trailerVideo){
+      
       getMovieVideos()
-      }
+      
     },[])
 }
 export default useMovieTrailer;
