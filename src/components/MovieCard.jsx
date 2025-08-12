@@ -18,7 +18,7 @@ const MovieCard = ({poster_path,id}) => {
     setTimeout(() => {
       navigate(`/watch/${id}`);
       dispatch(toggleGptSearch(!isShowGptSearch));
-    }, 0);
+    }, 0.3);
 
   }
 
