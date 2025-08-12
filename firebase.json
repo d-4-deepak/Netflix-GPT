@@ -1,17 +1,10 @@
 {
   "hosting": {
-    "site": "netflixgpt-7819e",   // your actual Firebase Hosting site ID here
     "public": "dist",
     "ignore": [
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
-    ],
-    "rewrites": [                  // Optional but recommended for SPA routing
-      {
-        "source": "**",
-        "destination": "/index.html"
-      }
     ]
   }
 }
