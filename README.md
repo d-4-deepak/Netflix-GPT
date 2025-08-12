@@ -37,11 +37,15 @@
  - GPT search page
  - GPT search bar
  - add multi-language feature
- - openai gpt-5 nano api for search suggestion
+ - openai gpt-5 nano model for search suggestion
+ - fetched movie gpt suggestion from tmdb
+ - created gptslice 
+ - reuse movielist component to make movie suggestion container
  - search suggestion ui
  - loading spinner
  - watch page for videos
  - making them responsive
+ - Adding .env file and adding it to .gitignore
 
  # Features
  - Login/Sign up form
