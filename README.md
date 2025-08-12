@@ -37,6 +37,11 @@
  - GPT search page
  - GPT search bar
  - add multi-language feature
+ - openai gpt-5 nano api for search suggestion
+ - search suggestion ui
+ - loading spinner
+ - watch page for videos
+ - making them responsive
 
  # Features
  - Login/Sign up form
