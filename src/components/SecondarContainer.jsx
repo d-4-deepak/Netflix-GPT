@@ -5,7 +5,7 @@ import lang from '../utils/languageConstants'
 
 const SecondarContainer = () => {
   const movies = useSelector((store)=>store.movies)
-  console.log("moview");
+  console.log("movies now playin",movies.nowPlayingMovies);
   const selectedLang = useSelector((store)=>store.config.lang)
 
   return (

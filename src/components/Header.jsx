@@ -31,33 +31,28 @@ const Header = () => {
   const handleGptSearch =()=>{
     dispatch(toggleGptSearch(!ShowGptSearch))
     dispatch(addGptMovieResult({movieName:null,movieResults:null}))
+   navigate("/browse")
   }
 
 
-  useEffect(()=>{
-
-  const unsubscribe = onAuthStateChanged(auth, (user) => {
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
-        
-        const {uid,displayName,email,photoURL} = user;
-        dispatch(addUser({
-          uid:uid,
-          displayName:displayName,
-          email:email,
-          photoURL:photoURL
-        }))
+        const { uid, displayName, email, photoURL } = user;
+        dispatch(addUser({ uid, displayName, email, photoURL }));
   
-        navigate("/browse")
-        // ...
+        if (window.location.pathname === "/") {
+          navigate("/browse");
+        }
       } else {
         dispatch(removeUser());
-        navigate("/")
+        navigate("/");
       }
     });
-
-    //Unsubscribe when component unmounts
-    return  ()=>unsubscribe()
-  },[])
+  
+    return () => unsubscribe();
+  }, []);
+  
 
     //HANDLE LANUAGE CHANGE
     const handleChange =(e)=>{
