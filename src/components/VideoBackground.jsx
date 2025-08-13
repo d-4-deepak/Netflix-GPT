@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import useMovieTrailer from '../hooks/useMovieTrailer';
+import Spinner from './Spinner';
 
 const VideoBackground = ({ movieId }) => {
   const mute = useSelector((store) => store.sound.mute);
@@ -22,11 +23,11 @@ const VideoBackground = ({ movieId }) => {
   }, [mute]);
   
 
-  if (!trailerVideo) return null;
+  // if (!trailerVideo) return null;
 
   return (
     <div className='w-screen'>
-     <iframe
+{  trailerVideo? <iframe
   ref={iframeRef}
   className="w-screen aspect-video"
   src={`https://www.youtube.com/embed/${trailerVideo.key}?autoplay=1&mute=1&enablejsapi=1&controls=0&modestbranding=1&rel=0&showinfo=0&disablekb=1`}
@@ -34,7 +35,9 @@ const VideoBackground = ({ movieId }) => {
   frameBorder="0"
   allow="autoplay"
   allowFullScreen
-></iframe>
+></iframe>: (
+  <div className='w-screen aspect-video bg-black/80 z-40 flex items-center justify-center text-center'> <Spinner/> </div>
+  )}
 
     </div>
   );

@@ -30,7 +30,7 @@ const MovieCard = ({poster_path,id}) => {
   
   return (
     <div  className="flex-shrink-0 ">
-        <img onClick={handleCardClick} alt={"movie card"} src={poster}  onError={(e) => e.target.src = poster_placeholder}  className=' xl:w-[15vw]  lg:w-[23vw] md:w-[26vw] sm:w-[34vw] w-[50vw] h-11/12 object-cover'/>
+        <img onClick={handleCardClick} alt={"movie card"} src={poster}  onError={(e) => e.target.src = poster_placeholder}  className=' cursor-pointer xl:w-[15vw]  lg:w-[23vw] md:w-[26vw] sm:w-[34vw] w-[50vw] h-11/12 object-cover'/>
     </div>
   )
 }

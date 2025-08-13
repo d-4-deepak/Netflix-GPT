@@ -6,6 +6,7 @@ import { createUserWithEmailAndPassword,signInWithEmailAndPassword,updateProfile
 import { useDispatch } from 'react-redux';
 import { addUser } from '../utils/userSlice';
 import { BACKGROUND_URl, USER_AVTAR } from '../utils/constant';
+import netflixbg from '../assets/netflixbg.webp'
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -119,7 +120,7 @@ const Login = () => {
         <img
           className='absolute top-0 left-0 w-full h-full object-cover z-[-2]'
           alt="bg-img"
-          src= {BACKGROUND_URl}
+          src= {netflixbg}
         />
 
         {/* Optional dark overlay */}
