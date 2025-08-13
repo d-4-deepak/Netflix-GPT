@@ -28,4 +28,4 @@ const VideoTitle = ({title, overview}) => {
 }
 
 export default VideoTitle
-// py-[1.5vw] p-[1.5vw]  lg:p-[1.2vw]
+// py-[1.5vw] p-[1.5vw]  lg:p-[1.2vw] m
