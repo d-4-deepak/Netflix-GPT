@@ -29,7 +29,11 @@ const WatchPage = () => {
         allowFullScreen
       ></iframe>
     ) : (
-      <p className="text-white text-xl">Loading trailer...(if not loaded in few seconds it means data is not available) </p>
+      
+      <div className=' flex flex-col  items-center justify-center text-white'>
+      <p className=" text-xl animate-bounce">Loading trailer...</p>
+      <p className=" mx-8 text-gray-300">(if not loaded in few seconds it means data is not available) </p>
+      </div>
     )}
   </div>
 </>
