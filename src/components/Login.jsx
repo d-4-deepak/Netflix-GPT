@@ -7,6 +7,7 @@ import { useDispatch } from 'react-redux';
 import { addUser } from '../utils/userSlice';
 import { BACKGROUND_URl, USER_AVTAR } from '../utils/constant';
 import netflixbg from '../assets/netflixbg.webp'
+import Footer from './Footer';
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -197,9 +198,7 @@ const Login = () => {
       </div>
 
       {/* Footer - outside background */}
-      <footer className='bg-gray-900 text-white text-center p-4'>
-        <p>Netflix Clone &copy; 2025. All rights reserved.</p>
-      </footer>
+     <Footer/>
     </div>
   );
 };

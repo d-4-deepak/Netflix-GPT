@@ -10,7 +10,7 @@ const GptMovieSuggestion = () => {
       console.log(loading);
       
   return (
-    <div className={`p-4 m-4 mt-16 ${loading || movieNames ?" bg-black/80":" "} text-white`} >
+    <div className={` p-4 m-4 mt-16 ${loading || movieNames ?" bg-black/80":" "} text-white`} >
      {loading && <div className='flex flex-col items-center'><Spinner/>  <p className="mt-4 text-lg text-gray-300 animate-pulse">
       🤖 AI is thinking... Please wait for better recommendations
     </p></div> }
@@ -19,7 +19,7 @@ const GptMovieSuggestion = () => {
          movieNames &&  movieNames.map((movieName,idx)=> <MovieList key={movieName} title={movieName} movies={movieResults[idx]}/>)
         }
       </div>
-
+      
     </div>
   )
 }

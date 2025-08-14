@@ -2,6 +2,7 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import MovieList from './MovieList'
 import lang from '../utils/languageConstants'
+import Footer from './Footer'
 
 const SecondarContainer = () => {
   const movies = useSelector((store)=>store.movies)
@@ -15,6 +16,7 @@ const SecondarContainer = () => {
 <MovieList title={`${lang[selectedLang].topRatedIndian}`} movies={movies.topRatedMovies} />
 <MovieList title={`${lang[selectedLang].popular}`} movies={movies.popularMovies}/>
 <MovieList title={`${lang[selectedLang].korean}`} movies={movies.koreanMovies} />
+<Footer/>
 </div>
 
         {/* {

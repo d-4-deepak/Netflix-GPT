@@ -69,7 +69,7 @@ const Header = () => {
 
      {user && <div className='flex gap-2 items-center '>
 
-       <select onChange={handleChange} className='bg-gray-300 w-10 sm:w-10 sm:py-2 text-black'>
+       <select onChange={handleChange} className='cursor-pointer bg-gray-300 w-10 sm:w-10 sm:py-2 text-black'>
         {SUPPORTED_LANGUAGES.map((lang)=><option key={lang.identifier} value={lang.identifier}>{lang.name}</option>
 )}          
       </select>
