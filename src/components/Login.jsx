@@ -161,10 +161,10 @@ const Login = () => {
 
             <p className='mx-auto font-bold mt-2'>{isSignIn && "Forgot Password?"}</p>
 
-            <div className='flex items-center text-center'>
+            {/* <div className='flex items-center text-center'>
               <input className='w-4 h-4 m-2 bg-black' type='checkbox' />
               <label className='ml-1 text-[1.1rem]'>{isSignIn?"Remember me":"I accept Terms and Conditions"}</label>
-            </div>
+            </div> */}
 
             <div className='flex m-2'>
               <p className='text-neutral-400 text-[1.1rem]'> {isSignIn?"New to Netflix?":"Already Registered?"}</p>
