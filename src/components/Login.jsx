@@ -29,8 +29,8 @@ const Login = () => {
   const handleButtonClick = ()=>{
     setFadeButton(true);
   const nameValue = !isSignIn?name.current.value:null
-  console.log(email.current.value);
-  console.log(password.current.value);
+  // console.log(email.current.value);
+  // console.log(password.current.value);
    const result =  checkValidData(email.current.value,password.current.value,nameValue);
   
       ///if data not valid 

@@ -9,7 +9,7 @@ const useKoreanMovies = ()=>{
     const getKoreanMovies = async ()=>{
         const data = await fetch("https://api.themoviedb.org/3/discover/movie?with_original_language=ko&sort_by=vote_average.desc&page=1",API_OPTIONS)
         const res = await data.json();
-        console.log("top rated movies",res);
+        // console.log("top rated movies",res);
         dispatch(addKoreanMovies(res.results))
         
     }

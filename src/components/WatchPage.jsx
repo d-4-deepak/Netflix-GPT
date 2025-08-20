@@ -7,11 +7,11 @@ import ReactPlayer from 'react-player';
 
 const WatchPage = () => {
     const {id} = useParams();
-    console.log(id);
+    // console.log(id);
     
     useMovieTrailer(id);
     const trailerVideo = useSelector((store)=>store.movies.trailerVideo)
-    console.log("trailervideo",trailerVideo);
+    // console.log("trailervideo",trailerVideo);
 
    
 

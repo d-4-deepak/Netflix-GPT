@@ -6,7 +6,7 @@ import Footer from './Footer'
 
 const SecondarContainer = () => {
   const movies = useSelector((store)=>store.movies)
-  console.log("movies now playin",movies.nowPlayingMovies);
+  // console.log("movies now playin",movies.nowPlayingMovies);
   const selectedLang = useSelector((store)=>store.config.lang)
 
   return (

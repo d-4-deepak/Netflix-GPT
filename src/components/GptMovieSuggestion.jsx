@@ -7,7 +7,7 @@ const GptMovieSuggestion = () => {
     const gpt = useSelector((store)=>store.gpt);
     const {movieNames,movieResults}=gpt;
       const loading = useSelector(store=>store.gpt.isLoading)   
-      console.log(loading);
+      // console.log(loading);
       
   return (
     <div className={` p-4 m-4 mt-16 ${loading || movieNames ?" bg-black/80":" "} text-white`} >
