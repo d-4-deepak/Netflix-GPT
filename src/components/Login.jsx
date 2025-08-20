@@ -31,8 +31,10 @@ const Login = () => {
   const nameValue = !isSignIn?name.current.value:null
   // console.log(email.current.value);
   // console.log(password.current.value);
-   const result =  checkValidData(email.current.value,password.current.value,nameValue);
-  
+  let result = null;
+  if(!isSignIn){
+    result =  checkValidData(email.current.value,password.current.value,nameValue);
+  }
       ///if data not valid 
   if (result) {
     setErrorMessage(result);
