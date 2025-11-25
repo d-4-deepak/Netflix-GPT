@@ -23,12 +23,13 @@ const GptSearchBar = () => {
   dispatch(toggleLoading(true))
       const gptQuery = "You are a movie recommendation system,Return exactly 5 movie names only, separated by commas, no explanations, no extra words."+searchText.current.value +".Output format example: Gadar, Golmaal, Koi Mil Gaya, Sholay, Doodh Ka Karz Do not ask any questions or request clarification. If unsure, still output 5 movie names."
       const configurationExample = await openai.chat.completions.create({
-        model: "provider-3/gpt-5-nano",
+        model: "provider-5/gpt-4o-mini",
         messages: [
           { role: "user", content: gptQuery},
         ],
       });
 
+     console.log(configurationExample);
      
 
       const gptMovies = configurationExample.choices[0].message.content.split(",")
