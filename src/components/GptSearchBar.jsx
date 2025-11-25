@@ -29,7 +29,7 @@ const GptSearchBar = () => {
         ],
       });
 
-     console.log(configurationExample);
+    //  console.log(configurationExample);
      
 
       const gptMovies = configurationExample.choices[0].message.content.split(",")
